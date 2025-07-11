@@ -1,11 +1,77 @@
 import random
+stages = [
+    '''
+     +---+
+     |   |
+         |
+         |
+         |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+         |
+         |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+     |   |
+         |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+    /|   |
+         |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+    /|\\  |
+         |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    /    |
+         |
+    =========
+    ''',
+    '''
+     +---+
+     |   |
+     O   |
+    /|\\  |
+    / \\  |
+         |
+    =========
+    '''
+]
+
 wordlist = ["camel", "goat", "baboon"]
 chosen_word = random.choice(wordlist)
 print(chosen_word)
 placeholder=""
 wordlength=len(chosen_word)
 game_over = False
-lives=6
+lives = len(stages)-1
 for position in range (wordlength):
         placeholder+="_"
 print(placeholder)
@@ -27,6 +93,7 @@ while not game_over:
     if not correctguess:
             lives -=1
             print(f"you have guessed wrong .You have {lives} remaining.")
+            print(stages[len(stages)-1-lives])
     print(display)
     if "_" not in display:
         game_over=True
