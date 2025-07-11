@@ -8,6 +8,7 @@ game_over = False
 for position in range (wordlength):
         placeholder+="_"
 print(placeholder)
+correct_letters = []
 while not game_over:
     guess = input("guess a letter: ").lower()
     display = ""
@@ -15,6 +16,12 @@ while not game_over:
         # print(f"Checking letter: {letter}")  # Debug print
         if letter == guess:
             display += guess
+            correct_letters.append(letter)
+        elif letter in correct_letters:
+            display += letter
         else:
             display += "_"
     print(display)
+    if "_" not in display:
+        game_over=True
+        print("you win")
